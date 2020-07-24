@@ -11,7 +11,7 @@ namespace RuntimeGizmos
 	//For example, if you select an object that has children, move the children elsewhere, deselect the original object, then try to add those old children to the selection, I think it wont work.
 
 	[RequireComponent(typeof(Camera))]
-	public class TransformGizmo : MonoBehaviour
+	public class TransformGizmo : Base.Singleton<TransformGizmo>
 	{
         //Hide space and objectRelative property in default inspector. They will be drawn by custom editor script - TransformGizmoEditor
         [HideInInspector]
@@ -635,6 +635,7 @@ namespace RuntimeGizmos
 	
 		void GetTarget()
 		{
+            /*
 			if(nearAxis == Axis.None && Input.GetMouseButtonDown(0))
 			{
 				bool isAdding = Input.GetKey(AddSelection);
@@ -663,7 +664,7 @@ namespace RuntimeGizmos
 						ClearTargets();
 					}
 				}
-			}
+			}*/
 		}
 
 		public void AddTarget(Transform target, bool addCommand = true)
